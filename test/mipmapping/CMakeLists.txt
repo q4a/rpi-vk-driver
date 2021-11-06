@@ -1,11 +1,11 @@
 file(GLOB testSrc
-	"*.h"
-	"*.cpp"
-)
+        "*.h"
+        "*.cpp"
+        )
 
-add_executable(mipmapping ${testSrc} )
+add_executable(mipmapping ${testSrc})
 
-target_link_libraries(mipmapping vulkan $<TARGET_OBJECTS:QPUassembler>)
-add_dependencies(mipmapping vulkan-loader QPUassembler)
+target_link_libraries(mipmapping Vulkan::Vulkan $<TARGET_OBJECTS:QPUassembler>)
+add_dependencies(mipmapping QPUassembler)
 
 add_testcase(mipmapping)

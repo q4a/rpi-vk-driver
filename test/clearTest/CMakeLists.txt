@@ -1,11 +1,11 @@
 file(GLOB testSrc
-	"*.h"
-	"*.cpp"
-)
+        "*.h"
+        "*.cpp"
+        )
 
-add_executable(clearTest ${testSrc} )
+add_executable(clearTest ${testSrc})
 
-target_link_libraries(clearTest vulkan $<TARGET_OBJECTS:QPUassembler>)
-add_dependencies(clearTest vulkan-loader QPUassembler)
+target_link_libraries(clearTest Vulkan::Vulkan $<TARGET_OBJECTS:QPUassembler>)
+add_dependencies(clearTest QPUassembler)
 
 add_testcase(clearTest)

@@ -1,11 +1,11 @@
 file(GLOB testSrc
-	"*.h"
-	"*.cpp"
-)
+        "*.h"
+        "*.cpp"
+        )
 
-add_executable(cubemapping ${testSrc} )
+add_executable(cubemapping ${testSrc})
 
-target_link_libraries(cubemapping vulkan $<TARGET_OBJECTS:QPUassembler>)
-add_dependencies(cubemapping vulkan-loader QPUassembler)
+target_link_libraries(cubemapping Vulkan::Vulkan $<TARGET_OBJECTS:QPUassembler>)
+add_dependencies(cubemapping QPUassembler)
 
 add_testcase(cubemapping)

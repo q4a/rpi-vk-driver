@@ -25,6 +25,8 @@ static sem_t flipQueueSem;
 
 static sem_t savedStateSem;
 
+static modeset_saved_state modeset_saved_states[32];
+
 static void* flipQueueThreadFunction(void* vargp)
 {
 	uint32_t run = 1;

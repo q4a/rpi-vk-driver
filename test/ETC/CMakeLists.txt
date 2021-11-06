@@ -1,11 +1,11 @@
 file(GLOB testSrc
-	"*.h"
-	"*.cpp"
-)
+        "*.h"
+        "*.cpp"
+        )
 
-add_executable(ETC ${testSrc} )
+add_executable(ETC ${testSrc})
 
-target_link_libraries(ETC vulkan $<TARGET_OBJECTS:QPUassembler>)
-add_dependencies(ETC vulkan-loader QPUassembler)
+target_link_libraries(ETC Vulkan::Vulkan $<TARGET_OBJECTS:QPUassembler>)
+add_dependencies(ETC QPUassembler)
 
 add_testcase(ETC)

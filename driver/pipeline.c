@@ -2,7 +2,7 @@
 
 #include "declarations.h"
 
-#include "kernel/vc4_packet.h"
+#include <libdrm/vc4_packet.h>
 #include "../QPUassembler/qpu_assembler.h"
 
 /*

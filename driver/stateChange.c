@@ -1,6 +1,6 @@
 #include "common.h"
 
-#include "kernel/vc4_packet.h"
+#include <libdrm/vc4_packet.h>
 
 #include "declarations.h"
 

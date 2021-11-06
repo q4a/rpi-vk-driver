@@ -19,10 +19,52 @@ project (rpi-vulkan-driver
 	LANGUAGES C CXX
 )
 
-include(options)
-include(sysroot)
-include(global)
-include(vulkan)
+#
+# Options
+#
+option(BUILD_INSTALL_TESTS "Install Test cases" OFF)
+
+
+#
+# Dependencies
+#
+
+find_package(Vulkan)
+
+if (NOT Vulkan_FOUND)
+    find_library(Vulkan_LIBRARY NAMES vulkan HINTS "$ENV{VULKAN_SDK}/lib" REQUIRED)
+    if (Vulkan_LIBRARY)
+        set(Vulkan_FOUND ON)
+    endif()
+endif ()
+
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(System REQUIRED libdrm expat zlib)
+
+set(CMAKE_THREAD_PREFER_PTHREAD TRUE)
+set(THREADS_PREFER_PTHREAD_FLAG TRUE)
+find_package(Threads REQUIRED)
+
+#
+# Global
+#
+
+set(CMAKE_C_STANDARD 99)
+set(CMAKE_C_EXTENSIONS OFF)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+
+if(${CMAKE_BUILD_TYPE} STREQUAL "Debug")
+	add_definitions(-DDEBUG_BUILD)
+    add_compile_options(-Wall)
+else()
+    # filter as-needed here
+    add_compile_options(-Wall) #-Wno-unused-variable -Wno-unused-parameter -Wno-unused-but-set-variable)
+    #add_compile_options(-Werror)
+endif()
 
 add_subdirectory(brcm)
 add_subdirectory(QPUassembler)
@@ -33,6 +75,8 @@ include(packaging)
 include(CTest)
 
 if(BUILD_TESTING)
+    # for tests
+    include_directories(${CMAKE_SOURCE_DIR})
     add_subdirectory(test)
 endif()
 

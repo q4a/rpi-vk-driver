@@ -1,11 +1,11 @@
 file(GLOB testSrc
-	"*.h"
-	"*.cpp"
-)
+        "*.h"
+        "*.cpp"
+        )
 
-add_executable(depthTex ${testSrc} )
+add_executable(depthTex ${testSrc})
 
-target_link_libraries(depthTex vulkan $<TARGET_OBJECTS:QPUassembler>)
-add_dependencies(depthTex vulkan-loader QPUassembler)
+target_link_libraries(depthTex Vulkan::Vulkan $<TARGET_OBJECTS:QPUassembler>)
+add_dependencies(depthTex QPUassembler)
 
 add_testcase(depthTex)

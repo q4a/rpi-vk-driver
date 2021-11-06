@@ -1,11 +1,11 @@
 file(GLOB testSrc
-	"*.h"
-	"*.cpp"
-)
+        "*.h"
+        "*.cpp"
+        )
 
-add_executable(MSAA ${testSrc} )
+add_executable(MSAA ${testSrc})
 
-target_link_libraries(MSAA vulkan $<TARGET_OBJECTS:QPUassembler>)
-add_dependencies(MSAA vulkan-loader QPUassembler)
+target_link_libraries(MSAA Vulkan::Vulkan $<TARGET_OBJECTS:QPUassembler>)
+add_dependencies(MSAA QPUassembler)
 
 add_testcase(MSAA)

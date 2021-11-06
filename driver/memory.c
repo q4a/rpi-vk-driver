@@ -2,7 +2,7 @@
 
 #include "declarations.h"
 
-#include "kernel/vc4_packet.h"
+#include <libdrm/vc4_packet.h>
 
 /*
  * https://www.khronos.org/registry/vulkan/specs/1.1-extensions/html/vkspec.html#vkGetPhysicalDeviceMemoryProperties

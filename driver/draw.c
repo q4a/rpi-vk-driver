@@ -2,7 +2,7 @@
 
 #include "declarations.h"
 
-#include "kernel/vc4_packet.h"
+#include <libdrm/vc4_packet.h>
 
 //returns max index
 static uint32_t drawCommon(VkCommandBuffer commandBuffer, int32_t vertexOffset)

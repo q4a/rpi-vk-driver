@@ -1,11 +1,11 @@
 file(GLOB testSrc
-	"*.h"
-	"*.cpp"
-)
+        "*.h"
+        "*.cpp"
+        )
 
-add_executable(texturing ${testSrc} )
+add_executable(texturing ${testSrc})
 
-target_link_libraries(texturing vulkan $<TARGET_OBJECTS:QPUassembler>)
-add_dependencies(texturing vulkan-loader QPUassembler)
+target_link_libraries(texturing Vulkan::Vulkan $<TARGET_OBJECTS:QPUassembler>)
+add_dependencies(texturing QPUassembler)
 
 add_testcase(texturing)

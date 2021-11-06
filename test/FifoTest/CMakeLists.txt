@@ -1,7 +1,7 @@
 file(GLOB testSrc
-	"*.h"
-	"*.cpp"
-)
+        "*.h"
+        "*.cpp"
+        )
 
 add_executable(FifoTest ${testSrc})
 

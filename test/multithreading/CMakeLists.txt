@@ -1,11 +1,11 @@
 file(GLOB testSrc
-	"*.h"
-	"*.cpp"
-)
+        "*.h"
+        "*.cpp"
+        )
 
-add_executable(multithreading ${testSrc} )
+add_executable(multithreading ${testSrc})
 
-target_link_libraries(multithreading vulkan pthread $<TARGET_OBJECTS:QPUassembler>)
-add_dependencies(multithreading vulkan-loader QPUassembler)
+target_link_libraries(multithreading Vulkan::Vulkan pthread $<TARGET_OBJECTS:QPUassembler>)
+add_dependencies(multithreading QPUassembler)
 
 add_testcase(multithreading)

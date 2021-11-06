@@ -1,7 +1,7 @@
 #include "common.h"
 #include "modeset.h"
 
-#include "kernel/vc4_packet.h"
+#include <libdrm/vc4_packet.h>
 
 #include "declarations.h"
 
