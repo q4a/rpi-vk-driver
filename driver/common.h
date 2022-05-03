@@ -1,8 +1,8 @@
 #pragma once
 
-#include <drm/drm.h>
-#include <drm/drm_fourcc.h>
-#include <drm/vc4_drm.h>
+#include <libdrm/drm.h>
+#include <libdrm/drm_fourcc.h>
+#include <libdrm/vc4_drm.h>
 
 #define VK_NO_PROTOTYPES
 #include <vulkan/vulkan.h>

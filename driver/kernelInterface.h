@@ -17,9 +17,9 @@ extern "C" {
 #include <fcntl.h>
 #include <errno.h>
 #include <stdarg.h>
-#include <drm/drm.h>
-#include <drm/drm_fourcc.h>
-#include <drm/vc4_drm.h>
+#include <libdrm/drm.h>
+#include <libdrm/drm_fourcc.h>
+#include <libdrm/vc4_drm.h>
 #include <xf86drm.h>
 #include <xf86drmMode.h>
 
